@@ -1,0 +1,19 @@
+{
+  "name": "challenge6-weatherapp",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@nuxthq/ui": "^2.5.0",
+    "@types/node": "^18.16.19",
+    "install": "^0.13.0",
+    "npm": "^9.8.0",
+    "nuxt": "^3.6.3"
+  }
+}
