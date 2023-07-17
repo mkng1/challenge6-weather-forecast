@@ -1,5 +1,5 @@
 // Autocorrect.js
-import cityList from './city.list.json' assert { type: 'json' };
+import cityList from './city.name.json' assert { type: 'json' };
 
 const dateEl =$('#date');
 const weatherIcoEl =$('#weather-icon');
@@ -14,9 +14,7 @@ const cycleTimeEl =$('#cycle-time');
 
 //Dayjs Code
 var today = dayjs();
-
 weatherStaEl.text('Check Weather at your Destination')
-
 function getDate() {
   dateEl.text(today.format('dddd, MMMM D'))
 }
@@ -55,7 +53,7 @@ const autoCompleteJS = new autoComplete({
   selector: "#autoComplete",
   placeHolder: "Search for Food...",
   data: {
-      src: ["Sauce - Thousand Island", "Wild Boar - Tenderloin", "Goat - Whole Cut"],
+      src: [...cityList],
       cache: true,
   },
   resultsList: {
