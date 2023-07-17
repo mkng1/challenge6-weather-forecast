@@ -1,45 +1,55 @@
-import cityList from "./city.list.json" assert { type: 'json' };
+// Global Variables declaration
+const cityList = [];
+const searchButton = document.getElementById("searchButton");
+const searchResult = document.getElementById("searchResult");
 
-const dateEl =$('#date');
-
-
-
-
-
-
-
-// //Dayjs Code
-// var today = dayjs();
-// weatherStaEl.text('Check Weather at your Destination')
-// function getDate() {
-//   dateEl.text(today.format('dddd, MMMM D'))
-// }
+// Event Listener
+searchButton.addEventListener("click", getGeocode);
 
 
-// Save and Read Start and Destination locations
-function saveLocation(){
-  localStorage.setItem("start", JSON.stringify(start));
-  localStorage.setItem("dest", JSON.stringify(dest));
+// Search action code
+function getGeocode() {
+  const cityName = document.getElementById('searchBox').value;
+  var stateCode = "";
+  var countryCode = "";
+  var weatherAPIKey = "dc5f6b4acef92af7d61cac5f8edf5f09";
+  var queryURL = "http://api.openweathermap.org/geo/1.0/direct?" + "q={" + cityName + "},{" + stateCode + "},{" + countryCode + "}&limit=5" + "&appid=" + weatherAPIKey;
+
+  fetch(queryURL)
+    .then(function (response) {
+      if (!response.ok) {
+        throw response.json();
+      }
+      return response.json();
+    })
+    .then(function (cityQuery) {
+
+      if (!cityQuery) {
+        console.log('No results found!');
+      } else {
+        console.log(cityQuery);
+        searchList(cityQuery);
+      }
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
 }
-function readLocation(){
-  start = JSON.parse(localStorage.getItem("start"));
-  dest = JSON.parse(localStorage.getItem("dest"));
-  document.getElementById('start').value = start;
-  document.getElementById('dest').value = dest;
+
+// List the cities and get the Geocode
+function searchList(cityQuery) {
+for (let index = 0; index < cityQuery.length; index++) {
+  const element = cityQuery[index];
+  var li = document.createElement("li");
+  searchResult.appendChild(li);
+  li.textContent = element.name + ", " + element.state + ", " + element.country;
+  li.addEventListener("click", function(){
+    getWeather(element.lat, element.lon);
+  });
+}
 }
 
-
-// On page Load, initialise these codes
-function init(){
-  readLocation();
-};
-
-init();
-
-"http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}"+"&appid=dc5f6b4acef92af7d61cac5f8edf5f09"
-
-//openweather api
-
+// Get the 
 function getWeather(lat, lon) {
   var weatherAPIKey = "dc5f6b4acef92af7d61cac5f8edf5f09";
   var queryURL = "https://api.openweathermap.org/data/2.5/weather?" + "lat=" + lat + "&lon=" + lon + "&appid=" + weatherAPIKey + "&units=metric";
@@ -67,3 +77,12 @@ function getWeather(lat, lon) {
 
 }
 
+
+
+// Save and Read Start and Destination locations
+function saveLocation(){
+  localStorage.setItem("cityList", JSON.stringify(cityList));
+};
+function readLocation(){
+  cityList = JSON.parse(localStorage.getItem("cityList"));
+};
