@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Challenge 6 - Weather Forecast</title>
+</head>
+<body class="w-full h-full">
+    <header class="bg-blue-400">
+        <div class="text-3xl indent-7 p-5 font-bold mb-4">Five-Day Weather Forecast</div>
+    </header>
+    
+    <main>
+        <!-- Search box -->
+        <div class="w-64 p-3">
+            <div class="flex pb-3"> 
+                <input type="text" id="searchBox" placeholder="Search Location" class="w-full border border-gray-300 rounded-md py-2 px-4 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-2">
+            </div>
+            <div class="flex"> 
+                <button onclick="searchCity()" class="w-full bg-black hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Search</button>
+            </div>
+            <!-- Search List -->
+            <div></div>
+        </div>
+        
+    </main>
+
+
+</body>
+
+<script src="./assets/js/script.js" type="module"></script>
+<script type="module">
+    import cityList from "./assets/js/city.list.json" assert { type: 'json' };
+    $( function() {
+
+      $( "#searchBox" ).autocomplete({
+        source: cityList
+      });
+    } );
+    </script>
+</html>
+
+
+
