@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script
         src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
         integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
@@ -13,58 +13,24 @@
 </head>
 <body class="w-full h-full">
     <header class="bg-blue-400">
-        <div class="text-3xl indent-7 p-5 font-bold mb-4">5 day Weather Forecast</div>
+        <div class="text-3xl indent-7 p-5 font-bold mb-4">Five-Day Weather Forecast</div>
     </header>
 
-    <div class="autoComplete_wrapper">
-        <input id="autoComplete" type="search" dir="ltr" spellcheck=false autocorrect="off" autocomplete="off" autocapitalize="off">
-    </div>
+    <main class="m-5">
+        <div class="flex"> 
+            <p id="date" class="text-black">today</p>
+            <input type="text" id="searchbox" placeholder="Search Location" class="w-full border border-gray-300 rounded-md py-2 px-4 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-2">
+            <button onclick="calcRoute()" class="w-32 bg-black hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Check!</button>
+        </div>
+
+    </main>
+
 </body>
 
-<script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js"></script>
+
 <script src="./assets/js/script.js" type="module"></script>
+
 </html>
 
 
 
-<main class="bg-white m-5 justify-center content-center items-center">
-    <!--Input Div-->
-    <div class="flex justify-center items-center"> 
-
-    </div>
-    <!-- Weather Icon and City and Date -->
-    <div class="flex justify-center items-center m-4">
-        <img src="./assets/img/icon.png" alt="Weather Icon" class="w-16 h-16 mr-4">
-        <div>
-            <h2 id="current-route" class="text-2xl font-semibold"></h2>
-            <p id="date" class="text-gray-500"></p>
-        </div>
-    </div>
-    <!-- Three Tiles space-x-3 space-y-3 -->
-    <section class="flex flex-row flex-auto flex-wrap">
-        <!-- Map Tile m-3 p-3 -->
-        <div class="h-96 w-full md:w-96 m-3 rounded-lg shadow-md">
-            <div id="map" class="rounded-lg h-96 w-full m-0 p-0"></div>
-        </div>
-        <!--Weather Display Box-->
-        <div class="h-96 w-full md:w-96 m-3 bg-blue-200 rounded-lg text-center shadow-md">
-            <h3 id="weather-status" class="text-2xl p-5 font-semibold"></h3>
-            <div class="my-10">
-                <img id="weather-icon" class="material-symbols-outlined" />
-            </div>
-            <div id="temperature" class="text-4xl font-semibold py-1"></div>
-        </div>
-    </section>
-</main>
-
-
-</body>
-</html>
-
-
-<input type="text" id="start" placeholder="Starting Location" class="
-w-full border border-gray-300 rounded-md py-2 px-4 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-2">
-<input type="text" id="dest" placeholder="Destination" class="
-w-full border border-gray-300 rounded-md py-2 px-4 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-2">
-<button onclick="calcRoute()" class="
-w-full bg-black hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Check!</button>
