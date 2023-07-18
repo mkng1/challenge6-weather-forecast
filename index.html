@@ -12,9 +12,9 @@
         <div class="text-3xl indent-7 p-5 font-bold mb-4">Five-Day Weather Forecast</div>
     </header>
     
-    <main class="grid-cols-5 col-auto">
+    <main class="flex flex-col items-center ">
         <!-- Search Box -->
-        <div class="w-64 h-full p-3 col-auto">
+        <div class="fixed left-0 top-50% h-50% w-30">
             <!-- Search Input -->
             <div class="pb-3"> 
                 <input type="text" id="searchBox" placeholder="Search Location" class="w-full border border-gray-300 rounded-md py-2 px-4 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-2">
@@ -24,72 +24,87 @@
             </div>
             <!-- Search Result -->
             <div class="">
-                <h3 id="searchHeader">Search Result</h3>
+                <h3 id="searchHeader" class="mt-3 text-sm text-gray-500">Search Result</h3>
             </div>
             <div class="">
-                <ul id="searchResult"></ul>
+                <ul id="searchResult" class="text-sm cursor-pointer"></ul>
             </div>
             <!-- Saved Cities -->
-            <div class="w-64 mt-3 justify-center">
+            <div class="mt-3 justify-center">
                 <h3 class="text-sm text-gray-500">List of Saved Cities</h3>
-                <ul id="cityHistory"></ul>
+                <ul id="cityHistory" class="text-sm cursor-pointer"></ul>
             </div>
         </div>
         <!-- Result Page -->
-        <div class="w-full col-auto">
-            <div class="w-full">
-                <span id="currentCity"></span>
+        <div class="col-auto flex flex-col items-center ">
+            <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:border-gray-700 justify-center flex flex-col items-center pb-10">
+                
+
+                <h1 class="text-xl">Current Weather</h1>
+                <p id="currentCity" class="text-3xl"></p>
                 <img id="currentWeatherIcon" />
-                <span id="currentWeather"></span>
-                <span id="currentDescription"></span>
-                <span id="currentTemperature"></span>
-                <span id="currentHumidity"></span>
+                <p id="currentWeather"></p>
+                <p id="currentDescription"></p>
+                <p id="currentTemperature"></p>
+                <p id="currentWind"></p>
+                <p id="currentHumidity"></p>
             </div>
         </div>
         <div>
-            <div class="w-full">
+            <div class="text-xl">5 Day Forecast</div>
+        </div>
+        <div class="flex">
+            <div  class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:border-gray-700 justify-center flex flex-col items-center pb-10">
                 <span id="dayOne"></span>
                 <img id="oneWeatherIcon" />
                 <span id="oneWeather"></span>
                 <span id="oneDescription"></span>
                 <span id="oneTemperature"></span>
+                <span id="oneWind"></span>
                 <span id="oneHumidity"></span>
             </div>
-            <div class="w-full">
+            <div  class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:border-gray-700 justify-center flex flex-col items-center pb-10">
                 <span id="dayTwo"></span>
                 <img id="twoWeatherIcon" />
                 <span id="twoWeather"></span>
                 <span id="twoDescription"></span>
                 <span id="twoTemperature"></span>
+                <span id="twoWind"></span>
                 <span id="twoHumidity"></span>
             </div>
-            <div class="w-full">
+            <div  class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:border-gray-700 justify-center flex flex-col items-center pb-10">
                 <span id="dayThree"></span>
                 <img id="threeWeatherIcon" />
                 <span id="threeWeather"></span>
                 <span id="threeDescription"></span>
                 <span id="threeTemperature"></span>
+                <span id="threeWind"></span>
                 <span id="threeHumidity"></span>
             </div>
-            <div class="w-full">
+            <div  class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:border-gray-700 justify-center flex flex-col items-center pb-10">
                 <span id="dayFour"></span>
                 <img id="fourWeatherIcon" />
                 <span id="fourWeather"></span>
                 <span id="fourDescription"></span>
                 <span id="fourTemperature"></span>
+                <span id="fourWind"></span>
                 <span id="fourHumidity"></span>
             </div>
-            <div class="w-full">
+            <div  class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:border-gray-700 justify-center flex flex-col items-center pb-10">
                 <span id="dayFive"></span>
                 <img id="fiveWeatherIcon" />
                 <span id="fiveWeather"></span>
                 <span id="fiveDescription"></span>
                 <span id="fiveTemperature"></span>
+                <span id="fiveWind"></span>
                 <span id="fiveHumidity"></span>
             </div>
         </div>
     </main>
 </body>
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/utc.js"></script>
 <script>dayjs.extend(window.dayjs_plugin_utc)</script>
