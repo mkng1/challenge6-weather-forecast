@@ -8,5 +8,10 @@ The following image shows the web application's appearance and functionality:
 
 ##
 
-#Github Repository
+# Github Repository
 
+https://github.com/mkng1/challenge6-weather-forecast
+
+# Live Deployment
+
+https://mkng1.github.io/challenge6-weather-forecast/
