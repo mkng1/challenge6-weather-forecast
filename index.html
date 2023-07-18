@@ -12,29 +12,89 @@
         <div class="text-3xl indent-7 p-5 font-bold mb-4">Five-Day Weather Forecast</div>
     </header>
     
-    <main>
-        <!-- Search box -->
-        <div class="w-64 p-3">
-            <div class="flex pb-3"> 
+    <main class="grid-cols-5 col-auto">
+        <!-- Search Box -->
+        <div class="w-64 h-full p-3 col-auto">
+            <!-- Search Input -->
+            <div class="pb-3"> 
                 <input type="text" id="searchBox" placeholder="Search Location" class="w-full border border-gray-300 rounded-md py-2 px-4 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-2">
             </div>
-            <div class="flex"> 
+            <div class=""> 
                 <button id="searchButton" class="w-full bg-black hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Search</button>
             </div>
             <!-- Search Result -->
-            <div class="flex">
-                <h3>List of Cities</h3>
+            <div class="">
+                <h3 id="searchHeader">Search Result</h3>
+            </div>
+            <div class="">
                 <ul id="searchResult"></ul>
             </div>
             <!-- Saved Cities -->
-            <div class="flex">
-                <h3>List of Saved Cities</h3>
+            <div class="w-64 mt-3 justify-center">
+                <h3 class="text-sm text-gray-500">List of Saved Cities</h3>
                 <ul id="cityHistory"></ul>
             </div>
         </div>
         <!-- Result Page -->
+        <div class="w-full col-auto">
+            <div class="w-full">
+                <span id="currentCity"></span>
+                <img id="currentWeatherIcon" />
+                <span id="currentWeather"></span>
+                <span id="currentDescription"></span>
+                <span id="currentTemperature"></span>
+                <span id="currentHumidity"></span>
+            </div>
+        </div>
+        <div>
+            <div class="w-full">
+                <span id="dayOne"></span>
+                <img id="oneWeatherIcon" />
+                <span id="oneWeather"></span>
+                <span id="oneDescription"></span>
+                <span id="oneTemperature"></span>
+                <span id="oneHumidity"></span>
+            </div>
+            <div class="w-full">
+                <span id="dayTwo"></span>
+                <img id="twoWeatherIcon" />
+                <span id="twoWeather"></span>
+                <span id="twoDescription"></span>
+                <span id="twoTemperature"></span>
+                <span id="twoHumidity"></span>
+            </div>
+            <div class="w-full">
+                <span id="dayThree"></span>
+                <img id="threeWeatherIcon" />
+                <span id="threeWeather"></span>
+                <span id="threeDescription"></span>
+                <span id="threeTemperature"></span>
+                <span id="threeHumidity"></span>
+            </div>
+            <div class="w-full">
+                <span id="dayFour"></span>
+                <img id="fourWeatherIcon" />
+                <span id="fourWeather"></span>
+                <span id="fourDescription"></span>
+                <span id="fourTemperature"></span>
+                <span id="fourHumidity"></span>
+            </div>
+            <div class="w-full">
+                <span id="dayFive"></span>
+                <img id="fiveWeatherIcon" />
+                <span id="fiveWeather"></span>
+                <span id="fiveDescription"></span>
+                <span id="fiveTemperature"></span>
+                <span id="fiveHumidity"></span>
+            </div>
+        </div>
     </main>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/utc.js"></script>
+<script>dayjs.extend(window.dayjs_plugin_utc)</script>
+<script>dayjs().format()
+</script>
 <script src="./assets/js/script.js" type="module"></script>
 </html>
 
