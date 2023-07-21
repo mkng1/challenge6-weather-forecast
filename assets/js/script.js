@@ -47,7 +47,7 @@ function getGeocode() {
   const cityName = document.getElementById('searchBox').value;
   var stateCode = "";
   var countryCode = "";
-  var queryURL = "http://api.openweathermap.org/geo/1.0/direct?" + "q={" + cityName + "},{" + stateCode + "},{" + countryCode + "}&limit=5" + "&appid=" + weatherAPIKey;
+  var queryURL = "https://api.openweathermap.org/geo/1.0/direct?" + "q={" + cityName + "},{" + stateCode + "},{" + countryCode + "}&limit=5" + "&appid=" + weatherAPIKey;
 
   fetch(queryURL)
     .then(function (response) {
